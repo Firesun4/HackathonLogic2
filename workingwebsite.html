@@ -9,22 +9,26 @@
     <title>Heroes · Bootstrap v5.3</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/heroes/">
+    <script src="backend_connection.js"></script>
     <script src="Mapload.js"></script>
-     <script src="backend_connection.js"></script>
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules\bootstrap\dist\css\bootstrap.min.css" rel="stylesheet">
 
     
     <!-- Custom styles for this template -->
-    <link href="Websitelook.css" rel="stylesheet">
+    <link href="heroes.css" rel="stylesheet">
   </head>
   <body onload="backend_connection.js">
     
 <main>
-  <div class="px-4 py-3 my-5 text-center">
+  <div class="px-4 py-5 my-5 text-center">
     <img class="d-block mx-auto mb-4" src="location_icon.png" alt="" width="72" height="70">
     <h1 class="display-5 fw-bold">D.A.M</h1>
     <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">Demographic Air Pollution Map</p>
+      <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
+        <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
+      </div>
     </div>
   </div>
 
@@ -36,20 +40,20 @@
 
 
   <div class="bg-dark text-secondary px-4 py-4 text-left">
-    <input type="checkbox" id="NO2" name="Nitrogen" value="NO2">
-    <label for="NO2"> Nitrogen </label><br>
+    <input onClick="getDataField(No2)"type="checkbox" id="NO2" name="Nitrogen" value="NO2">
+    <label for="NO2"> Demographic</label><br>
 
-    <input type="checkbox" id="ozone" name="Ozone" value="NO2">
+    <input onClick="getDataField('ozone')"type="checkbox" id="ozone" name="Ozone" value="NO2">
     <label for="ozone"> Ozone</label><br>
     
-    <input type="checkbox" id="pm10" name="pm10" value="pm10">
+    <input onClick="getDataField('pm10')"type="checkbox" id="pm10" name="pm10" value="pm10">
     <label for="pm10"> PM10</label><br>
 
-    <input type="checkbox" id="PM25" name="PM25" value="pm25">
+    <input onClick="getDataField('pm25')"type="checkbox" id="PM25" name="PM25" value="pm25">
     <label for="pm25"> PM2.5</label><br>
-
-    <div>Created by: Adam, Bethany, Pranav</div>
   </div>
+
+  <div class="b-example-divider mb-0"></div>
 </main>
 
 <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
@@ -60,4 +64,3 @@
 
   </body>
 </html>
-
