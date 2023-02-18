@@ -10,14 +10,14 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/heroes/">
     <script src="Mapload.js"></script>
-    <script src="placeMarkers.js"></script>
+     <script src="backend_connection.js"></script>
     <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     
     <!-- Custom styles for this template -->
     <link href="Websitelook.css" rel="stylesheet">
   </head>
-  <body>
+  <body onload="backend_connection.js">
     
 <main>
   <div class="px-4 py-3 my-5 text-center">
@@ -37,7 +37,7 @@
 
   <div class="bg-dark text-secondary px-4 py-4 text-left">
     <input type="checkbox" id="NO2" name="Nitrogen" value="NO2">
-    <label for="NO2"> Demographic</label><br>
+    <label for="NO2"> Nitrogen </label><br>
 
     <input type="checkbox" id="ozone" name="Ozone" value="NO2">
     <label for="ozone"> Ozone</label><br>
@@ -48,7 +48,7 @@
     <input type="checkbox" id="PM25" name="PM25" value="pm25">
     <label for="pm25"> PM2.5</label><br>
 
-    <div>Created by: </div>
+    <div>Created by: Adam, Bethany, Pranav</div>
   </div>
 </main>
 
@@ -60,5 +60,4 @@
 
   </body>
 </html>
-
 
