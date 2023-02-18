@@ -6,6 +6,9 @@ function initMap() {
     zoom: 10,
   });
 
+  }
+
+
 const moonMapType = new google.maps.ImageMapType({
     getTileUrl: function (coord, zoom) {
       const normalizedCoord = getNormalizedCoord(coord, zoom);
@@ -88,12 +91,22 @@ window.initMap = initMap;
         });
 
         function Onloaded() {
-            var lat = document.getElementById('latitude').value;
-            var long = document.getElementById('longitude').value;
-            if (lat && long) {
-                var location1 = new google.maps.LatLng(lat, long);
-                placeMarker(location1);
-                map.setCenter(location1);
+            var fieldList = ["ozone", "pm10", "pm25", "No2"]
+            for i in fieldList{
+                var dataList = getDataField(i);
+
+
+                for x in dataList{
+                    var lat = parseFloat(x["lat"]);
+                    var long = parseFloat(["long"]);
+                    if (lat && long) {
+                        var location1 = new google.maps.LatLng(lat, long);
+                        placeMarker(location1);
+                        //map.setCenter(location1);
+                }
+             }
+
+
             }
         }
         function placeMarker(location) {
