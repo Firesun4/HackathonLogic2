@@ -34,6 +34,7 @@ const moonMapType = new google.maps.ImageMapType({
   });
   map.overlayMapTypes.insertAt(0, moonMapType)
   map.mapTypes.set("justicemap", moonMapType);
+  addAllMarkers();
   //map.setMapTypeId("justicemap");
 }
 

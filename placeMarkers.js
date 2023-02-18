@@ -11,14 +11,16 @@
             var fieldList = ["ozone", "pm10", "pm25", "No2"]
             for(const i in fieldList){
                 var dataList = getDataField(i);
+                //var dataList = [{lat:"40.7128",long:"-74.0060"},{lat:"32",long:"89"}];
 
-
-                for(const x in dataList){
+                for(var z = 0; z<dataList.length;z++){
+                    var x = dataList[z];
                     var lat = parseFloat(x["lat"]);
-                    var long = parseFloat(["long"]);
+                    var long = parseFloat(x["long"]);
                     if (lat && long) {
                         var location1 = new google.maps.LatLng(lat, long);
                         placeMarker(location1);
+                        console.log("hello")
                         //map.setCenter(location1);
                 }
              }
