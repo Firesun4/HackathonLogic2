@@ -9,17 +9,22 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-@app.route("/")
+@app.route("/solutions")
+def solutions():
+    return render_template("solutions.html")
 
 @app.route('/get')
 # function for the bot response
 def get_bot_response():
-    return response
+    pass #return map visualization
 
 
 @app.route('/update')
 # function to update database'
 def update_Data():
+    #to update the maps
+    pass
+
 
 
 
