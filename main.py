@@ -8,11 +8,6 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return render_template("index.html")
-
-@app.route("/solutions")
-def solutions():
-    return render_template("solutions.html")
-
 @app.route('/get')
 # function for the bot response
 def get_bot_response():
