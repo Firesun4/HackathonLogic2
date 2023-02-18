@@ -1,4 +1,4 @@
-  let map;
+ let map;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -6,7 +6,7 @@ function initMap() {
     zoom: 10,
   });
 
-  }
+
 
 
 const moonMapType = new google.maps.ImageMapType({
@@ -38,6 +38,7 @@ const moonMapType = new google.maps.ImageMapType({
 
   map.mapTypes.set("justicemap", moonMapType);
   map.setMapTypeId("justicemap");
+  addAllMarkers();
 }
 
 // Normalizes the coords that tiles repeat across the x axis (horizontally)
@@ -66,37 +67,22 @@ window.initMap = initMap;
 //window.initMap = initMap;
 // [END maps_map_simple]
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript">
-    var marker;
-    var flag = 0;
 
-    function initialize(latlng) {
-        var myOptions = {
-            zoom: 14,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
-            streetViewControl: false,
-            mapTypeControl: false,
-        };
-
-        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-        if (flag == 0) {
-            google.maps.event.addListenerOnce(map, 'idle', function (event) {
-                Onloaded();
+     function placeMarker(location) {
+            marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                animation: google.maps.Animation.DROP,
             });
-        }
-        google.maps.event.addListener(map, 'click', function (event) {
-            placeMarker(event.latLng);
-        });
-
-        function Onloaded() {
+            marker.setMap(map);
+    }
+        function addAllMarkers() {
             var fieldList = ["ozone", "pm10", "pm25", "No2"]
-            for i in fieldList{
+            for(const i in fieldList){
                 var dataList = getDataField(i);
 
 
-                for x in dataList{
+                for(const x in dataList){
                     var lat = parseFloat(x["lat"]);
                     var long = parseFloat(["long"]);
                     if (lat && long) {
@@ -109,21 +95,7 @@ window.initMap = initMap;
 
             }
         }
-        function placeMarker(location) {
-        if (marker == undefined) {
-            marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                animation: google.maps.Animation.DROP,
-            });
-        } else {
-            marker.setPosition(location);
-        }
-        document.getElementById("latitude").value = location.lat();
-        document.getElementById("longitude").value = location.lng();
-    }
-}
-
+/*
 window.onload = function () {
     var lat = document.getElementById('latitude').value;
     var long = document.getElementById('longitude').value;
@@ -134,8 +106,8 @@ window.onload = function () {
     } else {
         initialize(new google.maps.LatLng(-33.8688, 151.2093)); // default location
     }
-    <div id="map_canvas" style="height: 500px; width: 100%;"></div>
 };
+*/
 
 async function getAllData() {
   const response = await fetch('http://localhost:8000/get/all-aqi')
@@ -159,7 +131,6 @@ async function getDataField(field) {
   console.log(listOfDicts)
   return dict
 }
-</script>
 //k
 
 
